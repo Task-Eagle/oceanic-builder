@@ -59,8 +59,8 @@
     /* Editor Grid Pattern */
     .editor-grid {
       background-color: #f8fafc;
-      background-image: 
-        radial-gradient(#cbd5e1 1px, transparent 1px), 
+      background-image:
+        radial-gradient(#cbd5e1 1px, transparent 1px),
         radial-gradient(#cbd5e1 1px, #f8fafc 1px);
       background-size: 20px 20px;
       background-position: 0 0, 10px 10px;
@@ -176,11 +176,11 @@
   </header>
 
   <!-- WORKSPACE -->
-  <div class="flex-1 flex overflow-hidden relative">
+  <div class="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden relative">
 
     <!-- LEFT SIDEBAR: DASHBOARD, SHARED ROOMS, REALTIME CHAT -->
     <aside id="left-sidebar" class="w-80 bg-ocean-950 border-r border-ocean-850 flex flex-col z-30 transition-all duration-300 shrink-0">
-      
+
       <!-- Nav Tabs -->
       <div class="flex border-b border-ocean-850 bg-ocean-900/40 p-1 gap-1">
         <button onclick="switchLeftTab('dashboard')" id="btn-tab-dashboard" class="flex-1 py-2 text-xs font-bold rounded-lg text-cyan-300 bg-ocean-800/80 border border-ocean-700/50 flex flex-col items-center gap-1 transition">
@@ -200,7 +200,7 @@
 
       <!-- Tab Content Area -->
       <div class="flex-1 overflow-y-auto p-4 space-y-4">
-        
+
         <!-- TAB 1: DASHBOARD -->
         <div id="tab-left-dashboard" class="space-y-4">
           <div class="flex items-center justify-between">
@@ -314,7 +314,7 @@
 
     <!-- MIDDLE WORKSPACE (PREVIEW CANVAS) -->
     <main class="flex-1 flex flex-col bg-slate-100 relative">
-      
+
       <!-- Canvas Control Bar (Width simulator & state buttons) -->
       <div class="bg-white border-b border-slate-200 px-6 py-2.5 flex items-center justify-between text-slate-800 shadow-xs shrink-0">
         <div class="flex items-center gap-3">
@@ -342,12 +342,12 @@
       <!-- Main Drag & Drop Zone Outer Scroll -->
       <div class="flex-1 overflow-auto p-8 flex justify-center items-start editor-grid" onclick="deselectActiveElement(event)">
         <!-- Canvas Core container -->
-        <div id="editor-canvas" class="w-full min-h-[600px] bg-white rounded-2xl shadow-xl border border-slate-200 transition-all duration-300 p-6 relative flex flex-col gap-4" 
-             ondragover="allowDrop(event)" 
+        <div id="editor-canvas" class="w-full min-h-[600px] bg-white rounded-2xl shadow-xl border border-slate-200 transition-all duration-300 p-6 relative flex flex-col gap-4"
+             ondragover="allowDrop(event)"
              ondrop="handleCanvasDrop(event)"
              ondragenter="handleDragEnter(event)"
              ondragleave="handleDragLeave(event)">
-          
+
           <!-- Helper state if Canvas is empty -->
           <div id="canvas-empty-state" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center p-8 select-none z-0">
             <div class="bg-gradient-to-tr from-ocean-50 to-cyan-50 p-6 rounded-full text-ocean-400 mb-4 animate-bounce">
@@ -381,8 +381,8 @@
     </main>
 
     <!-- RIGHT SIDEBAR: DRAGGABLE PALETTE & STYLE INSPECTOR -->
-    <aside class="w-80 bg-ocean-950 border-l border-ocean-850 flex flex-col z-30 shrink-0">
-      
+    <aside class="w-full lg:w-80 bg-ocean-950 border-t lg:border-t-0 lg:border-l border-ocean-850 flex flex-col z-30 shrink-0">
+
       <!-- Right Sidebar Tabs -->
       <div class="flex border-b border-ocean-850 bg-ocean-900/40 p-1 gap-1">
         <button onclick="switchRightTab('palette')" id="btn-tab-palette" class="flex-1 py-2 text-xs font-bold rounded-lg text-cyan-300 bg-ocean-800/80 border border-ocean-700/50 flex flex-col items-center gap-1 transition">
@@ -407,9 +407,9 @@
 
           <!-- Component Grid List -->
           <div class="space-y-3">
-            
+
             <!-- Navbar Component -->
-            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition" 
+            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition"
                  draggable="true" ondragstart="drag(event, 'navbar')">
               <div class="flex justify-between items-center text-xs font-bold text-slate-200">
                 <span>Header Bar (Nav)</span>
@@ -423,7 +423,7 @@
             </div>
 
             <!-- Hero Banner Component -->
-            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition" 
+            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition"
                  draggable="true" ondragstart="drag(event, 'hero')">
               <div class="flex justify-between items-center text-xs font-bold text-slate-200">
                 <span>Hero Ocean Banner</span>
@@ -437,7 +437,7 @@
             </div>
 
             <!-- Interactive Core Button -->
-            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition" 
+            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition"
                  draggable="true" ondragstart="drag(event, 'button')">
               <div class="flex justify-between items-center text-xs font-bold text-slate-200">
                 <span>CTA Button Block</span>
@@ -450,7 +450,7 @@
             </div>
 
             <!-- Three-Column Features Card -->
-            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition" 
+            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition"
                  draggable="true" ondragstart="drag(event, 'features')">
               <div class="flex justify-between items-center text-xs font-bold text-slate-200">
                 <span>Features Showcase</span>
@@ -474,7 +474,7 @@
             </div>
 
             <!-- Text Content Block -->
-            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition" 
+            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition"
                  draggable="true" ondragstart="drag(event, 'textblock')">
               <div class="flex justify-between items-center text-xs font-bold text-slate-200">
                 <span>Text Block (Heading + Body)</span>
@@ -489,7 +489,7 @@
             </div>
 
             <!-- Image Asset Frame -->
-            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition" 
+            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition"
                  draggable="true" ondragstart="drag(event, 'image')">
               <div class="flex justify-between items-center text-xs font-bold text-slate-200">
                 <span>Graphic Image frame</span>
@@ -502,7 +502,7 @@
             </div>
 
             <!-- Footer block -->
-            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition" 
+            <div class="bg-ocean-900/40 border border-ocean-800 hover:border-cyan-400 rounded-xl p-3 cursor-grab active:cursor-grabbing transition"
                  draggable="true" ondragstart="drag(event, 'footer')">
               <div class="flex justify-between items-center text-xs font-bold text-slate-200">
                 <span>Classic Footer Block</span>
@@ -541,7 +541,7 @@
             <!-- 1. Custom Content (Text, Link) -->
             <div class="space-y-3 bg-ocean-900/30 p-3 rounded-lg border border-ocean-900">
               <span class="text-[10px] uppercase font-bold text-ocean-300 block tracking-wide">Text & Content</span>
-              
+
               <!-- Editable text lines -->
               <div id="field-heading-wrapper" class="space-y-1">
                 <label class="text-[10px] text-slate-300">Heading Text</label>
@@ -703,24 +703,24 @@
   <!-- FIREBASE INTEGRATION SCRIPTS (MODULES) & WYSIWYG APP CORE -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-    import { 
-      getAuth, 
-      onAuthStateChanged, 
-      signInWithPopup, 
-      GoogleAuthProvider, 
-      signOut, 
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signInWithPopup,
+      GoogleAuthProvider,
+      signOut,
       signInAnonymously,
       signInWithCustomToken
     } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-    import { 
-      getDatabase, 
-      ref, 
-      set, 
-      get, 
-      push, 
-      onValue, 
-      off, 
-      remove 
+    import {
+      getDatabase,
+      ref,
+      set,
+      get,
+      push,
+      onValue,
+      off,
+      remove
     } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
 
     // ----------------------------------------------------
@@ -757,7 +757,7 @@
     let activeCollaborationRoomId = null;
     let designChangeListenerUnsubscribe = null;
     let chatListenerUnsubscribe = null;
-    let isApplyingRemoteChange = false; 
+    let isApplyingRemoteChange = false;
     const localDeviceId = crypto.randomUUID().substring(0, 8);
 
     // Selected element tracker
@@ -799,7 +799,7 @@
 
     function handleUserAuthenticated(user) {
       currentUser = user;
-      
+
       if (user.isAnonymous) {
         document.getElementById('auth-unlogged').classList.remove('hidden');
         document.getElementById('auth-logged').classList.add('hidden');
@@ -811,7 +811,7 @@
       }
 
       showToast(`Welcome! Signed in as ${user.displayName || (user.isAnonymous ? 'Guest' : user.email)}`, "success");
-      
+
       loadDashboardDesigns();
       loadTemplates();
     }
@@ -883,7 +883,7 @@
 
       const designTitle = document.getElementById('design-title-input').value.trim() || "Untitled Masterpiece";
       const canvasHtml = document.getElementById('editor-canvas').innerHTML;
-      
+
       document.getElementById('save-dropdown-menu').classList.add('hidden');
 
       const designData = {
@@ -1012,7 +1012,7 @@
           const data = docSnap.val();
           document.getElementById('design-title-input').value = data.title;
           document.getElementById('editor-canvas').innerHTML = data.html;
-          
+
           evaluateCanvasPlaceholder();
           rebindCanvasInteractiveListeners();
           showToast(`Loaded layout: "${data.title}"!`, "success");
@@ -1101,7 +1101,7 @@
         designChangeListenerUnsubscribe = onValue(roomRef, (snap) => {
           if (!snap.exists()) return;
           const data = snap.val();
-          
+
           if (data.lastEditor !== localDeviceId) {
             isApplyingRemoteChange = true;
             document.getElementById('design-title-input').value = data.title;
@@ -1122,7 +1122,7 @@
         document.getElementById('active-room-box').classList.remove('hidden');
         document.getElementById('active-room-code-display').textContent = roomCode;
         document.getElementById('modal-room-id-display').value = roomCode;
-        
+
         document.getElementById('chat-no-room-placeholder').classList.add('hidden');
         document.getElementById('chat-stream-box').classList.remove('hidden');
         document.getElementById('chat-input-row').classList.remove('hidden');
@@ -1179,7 +1179,7 @@
     // ----------------------------------------------------
     function initRoomChatListener() {
       const chatsRef = getPublicChatsCollectionRef();
-      
+
       chatListenerUnsubscribe = onValue(chatsRef, (snapshot) => {
         const messages = [];
         if (snapshot.exists()) {
@@ -1351,7 +1351,7 @@
 
     function handleCanvasDrop(ev) {
       ev.preventDefault();
-      
+
       const canvas = document.getElementById('editor-canvas');
       canvas.classList.remove('border-cyan-400', 'bg-cyan-50/10');
 
@@ -1406,7 +1406,7 @@
         e.classList.remove('active-selected');
       });
       document.getElementById('floating-toolbar').classList.add('hidden');
-      
+
       document.getElementById('inspector-active').classList.add('hidden');
       document.getElementById('inspector-inactive').classList.remove('hidden');
     }
@@ -1443,12 +1443,12 @@
         document.getElementById('field-heading-wrapper').classList.remove('hidden');
         const logoText = elem.querySelector('span');
         document.getElementById('inspector-text').value = logoText ? logoText.textContent.trim() : "";
-      } 
+      }
       else if (type === 'hero') {
         document.getElementById('field-heading-wrapper').classList.remove('hidden');
         document.getElementById('field-body-wrapper').classList.remove('hidden');
         document.getElementById('field-link-wrapper').classList.remove('hidden');
-        
+
         const heading = elem.querySelector('h1');
         const desc = elem.querySelector('p');
         const btn = elem.querySelector('button');
@@ -1456,7 +1456,7 @@
         document.getElementById('inspector-text').value = heading ? heading.textContent.trim() : "";
         document.getElementById('inspector-body').value = desc ? desc.textContent.trim() : "";
         document.getElementById('inspector-link').value = btn ? btn.getAttribute('onclick') || "" : "";
-      } 
+      }
       else if (type === 'button') {
         document.getElementById('field-heading-wrapper').classList.remove('hidden');
         document.getElementById('field-link-wrapper').classList.remove('hidden');
@@ -1465,7 +1465,7 @@
         const btn = elem.querySelector('button');
         document.getElementById('inspector-text').value = btn ? btn.textContent.trim() : "";
         document.getElementById('inspector-link').value = btn ? btn.getAttribute('onclick') || "" : "";
-      } 
+      }
       else if (type === 'textblock') {
         document.getElementById('field-heading-wrapper').classList.remove('hidden');
         document.getElementById('field-body-wrapper').classList.remove('hidden');
@@ -1475,12 +1475,12 @@
 
         document.getElementById('inspector-text').value = heading ? heading.textContent.trim() : "";
         document.getElementById('inspector-body').value = desc ? desc.textContent.trim() : "";
-      } 
+      }
       else if (type === 'image') {
         document.getElementById('field-image-wrapper').classList.remove('hidden');
         const img = elem.querySelector('img');
         document.getElementById('inspector-image-url').value = img ? img.src : "";
-      } 
+      }
       else if (type === 'footer') {
         document.getElementById('field-heading-wrapper').classList.remove('hidden');
         document.getElementById('field-body-wrapper').classList.remove('hidden');
@@ -1508,7 +1508,7 @@
       if (type === 'navbar') {
         const logoText = activeSelectedElement.querySelector('span');
         if (logoText) logoText.textContent = textVal;
-      } 
+      }
       else if (type === 'hero') {
         const heading = activeSelectedElement.querySelector('h1');
         const desc = activeSelectedElement.querySelector('p');
@@ -1517,25 +1517,25 @@
         if (heading) heading.textContent = textVal;
         if (desc) desc.textContent = bodyVal;
         if (btn) btn.setAttribute('onclick', linkVal);
-      } 
+      }
       else if (type === 'button') {
         const btn = activeSelectedElement.querySelector('button');
         if (btn) {
           btn.textContent = textVal;
           btn.setAttribute('onclick', linkVal);
         }
-      } 
+      }
       else if (type === 'textblock') {
         const heading = activeSelectedElement.querySelector('h3');
         const desc = activeSelectedElement.querySelector('p');
 
         if (heading) heading.textContent = textVal;
         if (desc) desc.textContent = bodyVal;
-      } 
+      }
       else if (type === 'image') {
         const img = activeSelectedElement.querySelector('img');
         if (img) img.src = imageUrlVal || "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80";
-      } 
+      }
       else if (type === 'footer') {
         const logo = activeSelectedElement.querySelector('p:first-child');
         const desc = activeSelectedElement.querySelector('p:nth-child(2)');
@@ -1559,7 +1559,7 @@
       const type = activeSelectedElement.getAttribute('data-type');
 
       activeSelectedElement.className = "canvas-element active-selected";
-      
+
       bgSelect.split(' ').forEach(cls => {
         activeSelectedElement.classList.add(cls);
       });
@@ -1572,7 +1572,7 @@
           heading.className = "font-extrabold tracking-tight font-space max-w-xl mx-auto leading-tight";
           heading.classList.add(fontSize);
         }
-      } 
+      }
       else if (type === 'textblock') {
         const heading = activeSelectedElement.querySelector('h3');
         if (heading) {
@@ -1631,7 +1631,7 @@
 
     function moveActiveElement(direction) {
       if (!activeSelectedElement) return;
-      
+
       const parent = activeSelectedElement.parentNode;
       if (direction === 'up') {
         const previous = activeSelectedElement.previousElementSibling;
@@ -1656,7 +1656,7 @@
       const clone = activeSelectedElement.cloneNode(true);
       clone.classList.remove('active-selected');
       activeSelectedElement.parentNode.insertBefore(clone, activeSelectedElement.nextSibling);
-      
+
       showToast("Element duplicated!", "success");
       syncCanvasToCloud();
     }
@@ -1665,7 +1665,7 @@
     function deleteActiveElement() {
       if (!activeSelectedElement) return;
       activeSelectedElement.remove();
-      
+
       activeSelectedElement = null;
       document.getElementById('floating-toolbar').classList.add('hidden');
       document.getElementById('inspector-active').classList.add('hidden');
@@ -1712,11 +1712,11 @@
     function downloadHTMLCode() {
       const designTitle = document.getElementById('design-title-input').value.trim() || "Index Output";
       const cleanCanvas = document.getElementById('editor-canvas').cloneNode(true);
-      
+
       cleanCanvas.querySelectorAll('.canvas-element').forEach(el => {
         el.classList.remove('active-selected');
-        el.removeAttribute('onclick'); 
-        
+        el.removeAttribute('onclick');
+
         const customJs = el.getAttribute('data-click-js');
         if (customJs) {
           el.setAttribute('onclick', customJs);
@@ -1776,7 +1776,7 @@
     // ----------------------------------------------------
     function changeCanvasWidth(view) {
       const canvas = document.getElementById('editor-canvas');
-      
+
       document.getElementById('btn-view-desktop').className = "px-3 py-1 text-xs rounded-md font-semibold transition-all text-slate-500 hover:text-slate-800";
       document.getElementById('btn-view-tablet').className = "px-3 py-1 text-xs rounded-md font-semibold transition-all text-slate-500 hover:text-slate-800";
       document.getElementById('btn-view-mobile').className = "px-3 py-1 text-xs rounded-md font-semibold transition-all text-slate-500 hover:text-slate-800";
@@ -1874,7 +1874,7 @@
     function showToast(message, type = 'info') {
       const container = document.getElementById('toast-container');
       const toast = document.createElement('div');
-      
+
       const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-triangle' : 'fa-info-circle';
       const color = type === 'success' ? 'bg-emerald-900 border-emerald-500 text-emerald-200' : type === 'error' ? 'bg-rose-950 border-rose-500 text-rose-200' : 'bg-ocean-900 border-ocean-600 text-cyan-200';
 
@@ -1885,7 +1885,7 @@
       `;
 
       container.appendChild(toast);
-      
+
       setTimeout(() => {
         toast.style.transform = 'translateY(0)';
       }, 50);
